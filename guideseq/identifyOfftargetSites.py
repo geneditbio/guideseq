@@ -437,7 +437,7 @@ def loadFileIntoArray(filename):
 
 
 def parseReadName(read_name):
-	m = re.search(r'([ACGTN]{8}_[ACGTN]{6}_[ACGTN]{6})_([0-9]*)', read_name)
+	m = re.search(r'([ACGTN]*_[ACGTN]*_[ACGTN]*_([0-9]*))', read_name)
 	if m:
 		molecular_index, count = m.group(1), m.group(2)
 		return molecular_index, int(count)

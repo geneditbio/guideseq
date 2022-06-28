@@ -274,7 +274,7 @@ class GuideSeq:
                     # infile = self.identified[sample]
                     # outfile = os.path.join(self.output_folder, 'visualization', sample + '_offtargets')
                     # visualizeOfftargets(infile, outfile, title=sample)
-
+                    
             # logger.info('Finished visualizing off-target sites')
 
         # except Exception as e:
@@ -290,7 +290,8 @@ class GuideSeq:
                         self.PAM
                         visualizeOfftargets(infile, outfile, title=sample,PAM=self.PAM)
                     except:
-                        visualizeOfftargets(infile, outfile, title=sample,PAM="NGG")
+                        # visualizeOfftargets(infile, outfile, title=sample,PAM="NGG")
+                        visualizeOfftargets(infile, outfile, title=sample,PAM="NNGRRT")
                 except Exception as e:
                     logger.error('Error visualizing off-target sites: %s'%(sample))
                     logger.error(traceback.format_exc())
