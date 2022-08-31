@@ -40,7 +40,7 @@ def alignReads(BWA_path, HG19_path, read1, read2, outfile):
 
     # Run paired end alignment against the genome
     logger.info('Running paired end mapping for {0}'.format(sample_name))
-    bwa_alignment_command = '{0} mem {1} {2} {3}'.format(BWA_path,
+    bwa_alignment_command = '{0} mem -t 16 {1} {2} {3}'.format(BWA_path,
                                                          HG19_path,
                                                          read1,
                                                          read2)
