@@ -1,6 +1,7 @@
-HTSeq
+HTSeq==0.12.3
 PyYAML
 swalign
 pyfaidx
 svgwrite
-regex
+regex==2021.11.10
+biopython==2.76
