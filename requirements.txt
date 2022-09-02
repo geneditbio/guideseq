@@ -4,4 +4,4 @@ swalign
 pyfaidx
 svgwrite
 regex==2021.11.10
-biopython==2.76
+biopython==1.76
