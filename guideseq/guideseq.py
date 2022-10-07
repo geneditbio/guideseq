@@ -265,7 +265,7 @@ class GuideSeq:
             logger.error('Error filtering background sites.')
             logger.error(traceback.format_exc())
 
-    def visualize(self):
+    def visualize(self, pam):
         logger.info('Visualizing off-target sites')
 
         # try:
@@ -286,12 +286,7 @@ class GuideSeq:
                 try:
                     infile = self.identified[sample]
                     outfile = os.path.join(self.output_folder, 'visualization', sample + '_offtargets')
-                    try:
-                        self.PAM
-                        visualizeOfftargets(infile, outfile, title=sample,PAM=self.PAM)
-                    except:
-                        # visualizeOfftargets(infile, outfile, title=sample,PAM="NGG")
-                        visualizeOfftargets(infile, outfile, title=sample,PAM="NNGRRT")
+                    visualizeOfftargets(infile, outfile, title=sample,PAM=pam)
                 except Exception as e:
                     logger.error('Error visualizing off-target sites: %s'%(sample))
                     logger.error(traceback.format_exc())
@@ -351,6 +346,7 @@ def parse_args():
     visualize_parser = subparsers.add_parser('visualize', help='Visualize off-target sites')
     visualize_parser.add_argument('--infile', required=True)
     visualize_parser.add_argument('--outfolder', required=True)
+    visualize_parser.add_argument('--pam', required=False)
     visualize_parser.add_argument('--title', required=False)
 
     return parser.parse_args()
@@ -551,7 +547,7 @@ def main():
         g.samples = {sample: {}}
         g.identified = {}
         g.identified[sample] = args.infile
-        g.visualize()
+        g.visualize(args.pam)
 
 
 if __name__ == '__main__':
